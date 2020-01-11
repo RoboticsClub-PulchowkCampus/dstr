@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+# Ignore vscode files
+.vscode
+
+# Ignore Build files and temporary files
+Build/
+tmp/
