@@ -1,0 +1,28 @@
+#*
+#* .travis.yml
+#*
+#* Created: 12/3/2019
+#*  Author: n-is
+#*   Email: 073bex422.nischal@pcampus.edu.np
+#*
+
+language: cpp
+dist: bionic
+
+compiler:
+  -gcc
+os: linux
+
+before_install:
+  - echo Starting Build Process
+
+script:
+  # Configure first. Create required static library
+  - if [ $TRAVIS_OS_NAME == linux ]; then bash ./configure.sh; fi
+  # Finally run all the tests
+  - cd ./Tests
+  - if [ $TRAVIS_OS_NAME == linux ]; then bash ./test.sh; fi
+  - cd ..
+
+notifications:
+  email: false
